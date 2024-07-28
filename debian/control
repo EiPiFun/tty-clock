@@ -1,0 +1,18 @@
+Source: tty-clock
+Section: utils
+Priority: optional
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Build-Depends: debhelper-compat (= 13), libncurses-dev, pkgconf
+Standards-Version: 4.7.0
+Homepage: https://github.com/xorg62/tty-clock
+Rules-Requires-Root: no
+Vcs-Browser: https://salsa.debian.org/debian/tty-clock
+Vcs-Git: https://salsa.debian.org/debian/tty-clock.git
+
+Package: tty-clock
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: simple terminal clock
+ tty-clock is a simple ncurses-based clock that shows the time and date
+ using a large display. It has a few commandline options to customize
+ the output.

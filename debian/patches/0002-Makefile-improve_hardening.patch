@@ -1,0 +1,15 @@
+Description: Improve harding added CPPFLAGS
+Author: Rony Joao de Sousa <ronyjdesousa@gmail.com>
+Forwarded: not needed
+Last-Update: 2024-05-04
+--- tty-clock-2.3.orig/Makefile
++++ tty-clock-2.3/Makefile
+@@ -23,7 +23,7 @@ endif
+ tty-clock : ${SRC}
+ 
+ 	@echo "building ${SRC}"
+-	${CC} ${CFLAGS} ${SRC} -o ${BIN} ${LDFLAGS}
++	${CC} ${CFLAGS} ${CPPFLAGS} ${SRC} -o ${BIN} ${LDFLAGS}
+ 
+ install : ${BIN}
+ 

@@ -1,0 +1,2 @@
+Test-Command: tty-clock -v | grep "^TTY-Clock"
+Restrictions: superficial

@@ -1,0 +1,32 @@
+From 4cfd73080da1964557484da620c401745d73881c Mon Sep 17 00:00:00 2001
+From: Sergei Trofimovich <slyich@gmail.com>
+Date: Thu, 4 Nov 2021 08:54:32 +0000
+Subject: [PATCH] ttyclock.c: always use "%s"-style format for printf()-style
+ functions
+
+`ncuses-6.3` added printf-style function attributes and now makes
+it easier to catch cases when user input is used in palce of format
+string when built with CFLAGS=-Werror=format-security:
+
+    ttyclock.c:270:71: error: format not a string literal and no format arguments [-Werror=format-security]
+      270 |           mvwprintw(ttyclock.datewin, (DATEWINH / 2), 1, ttyclock.date.datestr);
+          |                                                          ~~~~~~~~~~~~~^~~~~~~~
+
+Let's wrap all the missing places with "%s" format.
+---
+ ttyclock.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Index: b/ttyclock.c
+===================================================================
+--- a/ttyclock.c	2023-02-25 14:06:40.408164110 -0500
++++ b/ttyclock.c	2023-02-25 14:07:59.072002460 -0500
+@@ -275,7 +275,7 @@ draw_clock(void)
+      if (ttyclock->option.date)
+      {
+           wbkgdset(ttyclock->datewin, (COLOR_PAIR(2)));
+-          mvwprintw(ttyclock->datewin, (DATEWINH / 2), 1, ttyclock->date.datestr);
++          mvwprintw(ttyclock->datewin, (DATEWINH / 2), 1, "%s", ttyclock->date.datestr);
+           wrefresh(ttyclock->datewin);
+      }
+ 

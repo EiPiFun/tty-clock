@@ -1,0 +1,164 @@
+tty-clock (2.3-5) unstable; urgency=medium
+
+  * QA upload.
+  * Using new DH level format. Consequently:
+      - debian/control: changed from 'debhelper' to 'debhelper-compat' in
+        Build-Depends field and bumped level to 13.
+      - debian/compat: removed.
+  * debian/control:
+      - Added Rules-Requires-Root field.
+      - Added Vcs-* fields.
+      - Build-Depends: changed from 'pkg-config' to 'pkgconf'.
+      - Bumped Standards-Version to 4.7.0.
+  * debian/gbp.conf:
+      - Dropped field upstream tag.
+      - Updated debian-branch to debian/master because conflict
+        with gbp import-dsc.
+  * debian/patches/0002_Makefile-improve_hardening.patch: created to improve
+      hardening.
+  * debian/salsa-ci.yml: Added to provide CI tests for Salsa.
+  * debian/tests/control: Added a superficial test.
+  * debian/upstream/metadata: Added upstream metadata information.
+  * debian/watch:
+      - Changed URL to "https://github.com/xorg62/tty-clock".
+      - Updated the search rule the version to 4.
+
+ -- Rony Joao de Sousa <ronyjdesousa@gmail.com>  Sat, 18 May 2024 21:04:56 -0300
+
+tty-clock (2.3-4) unstable; urgency=medium
+
+  * QA upload.
+  * Drop Vcs-* fields, as they point to an obsolete repository.
+  * Drop Debian menu file:
+    - the Debian menu was deprecated more than 8 years ago
+    - this menu entry has no icon
+
+ -- Pino Toscano <pino@debian.org>  Sat, 27 Jan 2024 06:46:40 +0100
+
+tty-clock (2.3-3) unstable; urgency=medium
+
+  * orphan this package (#1031941)
+
+ -- Antoine Beaupré <anarcat@debian.org>  Sat, 25 Feb 2023 14:36:53 -0500
+
+tty-clock (2.3-2) unstable; urgency=medium
+
+  * fix FTBFS (Closes: #997179)
+
+ -- Antoine Beaupré <anarcat@debian.org>  Sat, 25 Feb 2023 14:05:47 -0500
+
+tty-clock (2.3-1) unstable; urgency=medium
+
+  * new upstream release
+  * remove needless make overrides now that upstream has a clean makefile
+
+ -- Antoine Beaupré <anarcat@debian.org>  Sat, 14 Jan 2017 22:08:31 -0500
+
+tty-clock (2.2-1) unstable; urgency=medium
+
+  * new upstream snapshot, tagged as 2.2
+  * set time structure at the right moment, fixing clock delay
+  * do not track patches in git, upstream responds
+  * use virtual package for ncurses build-dep, they will drop the version
+
+ -- Antoine Beaupré <anarcat@debian.org>  Fri, 13 Jan 2017 17:04:23 -0500
+
+tty-clock (2.1-3) unstable; urgency=medium
+
+  * follow ncurses5 for now, until ncurses6 hits the archive, fixes builds
+    on buildds
+
+ -- Antoine Beaupré <anarcat@debian.org>  Fri, 13 Jan 2017 15:12:09 -0500
+
+tty-clock (2.1-2) unstable; urgency=medium
+
+  * remove redundant hardcoded dependency on libncurses5, thanks Sven
+    Joachim (Closes: #851245)
+  * fix build with arbitrary ncurses versions (Closes: #851239)
+  * point to github for debian VCS (Closes: #740693)
+  * properly pass LDFLAGS to fix ld --as-needed (Closes: #799212)
+  * bump dh compat to 10
+  * bump standards to latest, no change
+  * bump priority to optional, no reason it was extra
+  * fix gbp sections for latest gbp versions
+  * enable hardening flags, requires upstream patch
+
+ -- Antoine Beaupré <anarcat@debian.org>  Fri, 13 Jan 2017 10:11:07 -0500
+
+tty-clock (2.1-1) unstable; urgency=medium
+
+  * new upstream patches
+  * fix build in sid (Closes: #788749)
+
+ -- Antoine Beaupré <anarcat@debian.org>  Tue, 16 Jun 2015 09:07:45 -0400
+
+tty-clock (2.0-2) unstable; urgency=low
+
+  * upload to unstable
+
+ -- Antoine Beaupré <anarcat@debian.org>  Sun, 05 May 2013 17:12:26 -0400
+
+tty-clock (2.0-1) experimental; urgency=low
+
+  * new upstream (Closes: #689248, #686466, #700738).
+  * fix Vcs-$foo headers, thanks to David Bremner (Closes: #702171).
+  * upstream now has a manpage (Closes: #686466).
+  * patch: fix hardening flags
+
+ -- Antoine Beaupré <anarcat@debian.org>  Fri, 08 Mar 2013 22:30:45 -0500
+
+tty-clock (1.1-1) unstable; urgency=low
+
+  * fix my email address
+  * no more DM field, I am a DD
+  * remove useless todo, we have an upstream 1.0
+  * fix compile with --as-needed", thanks to Julian Taylor
+    (Closes: #647316).
+  * new upstream release factors in all patches
+  * do not require upstream branch in git-buildpackage
+
+ -- Antoine Beaupré <anarcat@debian.org>  Sun, 06 Nov 2011 22:40:09 -0500
+
+tty-clock (1.0-4) unstable; urgency=low
+
+  * fix more lintian errors
+    * update to policy 3.9.2, no change
+    * remove template from copyright file
+    * just one big patch, we track changes in git
+    * we still don't have a manpage though
+
+ -- Antoine Beaupré <anarcat@koumbit.org>  Wed, 26 Oct 2011 22:42:47 -0400
+
+tty-clock (1.0-3) unstable; urgency=low
+
+  * Fix lintian warnings:
+   * fix copyright symbol
+   * remove unused dependencies
+   * remove README.source since we're not using dpatch anymore
+
+ -- Antoine Beaupré <anarcat@koumbit.org>  Sun, 21 Aug 2011 16:11:41 +0100
+
+tty-clock (1.0-2) unstable; urgency=low
+
+  * Add DM-Upload-Allowed field so that I can upload the package myself.
+  * Add missing ncurses dependency (Closes: #637711)
+  * Try to close ITP again (Closes: #609634).
+
+ -- Antoine Beaupré <anarcat@koumbit.org>  Sun, 14 Aug 2011 11:46:55 +0200
+
+tty-clock (1.0-1) unstable; urgency=low
+
+  * Officially release 1.0
+  * Port to dh(7) from cdbs
+  * Add git-buildpackage config
+  * Upload to unstable (Closes: #609634)
+
+ -- Antoine Beaupré <anarcat@koumbit.org>  Sat, 16 Jul 2011 22:34:51 -0400
+
+tty-clock (0~git20090617-1) unstable; urgency=low
+
+  * Initial release (Closes: #609634)
+  * Respect $DESTDIR and $PREFIX and use it
+  * Merge in bugfixes found in related github branches
+
+ -- Antoine Beaupré <anarcat@koumbit.org>  Mon, 10 Jan 2011 22:54:48 -0500

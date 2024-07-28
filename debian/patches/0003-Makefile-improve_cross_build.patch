@@ -1,0 +1,28 @@
+Description: Improve cross build by change hardcoded pkgconf
+Author: Helmut Grohne <helmut@subdivi.de>
+Forwarded: not needed
+Bug-Debian: https://bugs.debian.org/#1063452
+Reviewed-By: DONG XU <me@eipi.fun>
+Last-Update: 2024-07-26
+
+--- tty-clock-2.3.orig/Makefile
++++ tty-clock-2.3/Makefile
+@@ -4,6 +4,7 @@
+ 
+ SRC = ttyclock.c ttyclock.h
+ CC ?= gcc
++PKG_CONFIG ?= pkgconf
+ BIN ?= tty-clock
+ PREFIX ?= /usr/local
+ INSTALLPATH ?= ${DESTDIR}${PREFIX}/bin
+@@ -22,8 +23,8 @@ else ifeq ($(shell sh -c 'which ncursesw
+ 	CFLAGS += -Wall -g $$(ncursesw5-config --cflags)
+ 	LDFLAGS += $$(ncursesw5-config --libs)
+ else
+-	CFLAGS += -Wall -g $$(pkg-config --cflags ncurses)
+-	LDFLAGS += $$(pkg-config --libs ncurses)
++	CFLAGS += -Wall -g $$($(PKG_CONFIG) --cflags ncurses)
++	LDFLAGS += $$($(PKG_CONFIG) --libs ncurses)
+ endif
+ 
+ tty-clock : ${SRC}

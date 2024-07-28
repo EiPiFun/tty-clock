@@ -1,2 +1,2 @@
 version=4
-https://github.com/xorg62/@PACKAGE@/tags .*/tags/v?@ANY_VERSION@@ARCHIVE_EXT@
+options="mode=git,pretty=2.3+git.%cd.%h" https://github.com/xorg62/@PACKAGE@/ HEAD

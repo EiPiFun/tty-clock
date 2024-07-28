@@ -1,3 +1,15 @@
+tty-clock (2.3+git.20211121.f2f847c-1) unstable; urgency=medium
+
+  * Adopting package (Closes: #1031941).
+  * New upstream release based on latest git commit.
+  * Drop 0001-ttyclock.c-always-use-s-style-format-for-printf-styl.patch:
+    - Applied in the upstream commit 4cfd730
+  * Add 0003-Makefile-improve_cross_build.patch (Closes: #1063452):
+    - Improve cross build by changing hardcoded pkgconf
+  * Copyright transferred to DEP-5 style
+
+ -- DONG XU <me@eipi.fun>  Fri, 26 Jul 2024 14:24:56 +0900
+
 tty-clock (2.3-5) unstable; urgency=medium
 
   * QA upload.

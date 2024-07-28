@@ -1,2 +1,2 @@
-0001-ttyclock.c-always-use-s-style-format-for-printf-styl.patch
 0002-Makefile-improve_hardening.patch
+0003-Makefile-improve_cross_build.patch

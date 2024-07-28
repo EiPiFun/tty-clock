@@ -1,13 +1,13 @@
 Source: tty-clock
 Section: utils
 Priority: optional
-Maintainer: Debian QA Group <packages@qa.debian.org>
+Maintainer: DONG XU <me@eipi.fun>
 Build-Depends: debhelper-compat (= 13), libncurses-dev, pkgconf
 Standards-Version: 4.7.0
 Homepage: https://github.com/xorg62/tty-clock
 Rules-Requires-Root: no
-Vcs-Browser: https://salsa.debian.org/debian/tty-clock
-Vcs-Git: https://salsa.debian.org/debian/tty-clock.git
+Vcs-Browser: https://salsa.debian.org/EiPiFun/tty-clock
+Vcs-Git: https://salsa.debian.org/EiPiFun/tty-clock.git
 
 Package: tty-clock
 Architecture: any

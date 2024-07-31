@@ -30,7 +30,7 @@ endif
 tty-clock : ${SRC}
 
 	@echo "building ${SRC}"
-	${CC} ${CFLAGS} ${SRC} -o ${BIN} ${LDFLAGS}
+	${CC} ${CFLAGS} ${CPPFLAGS} ${SRC} -o ${BIN} ${LDFLAGS}
 
 install : ${BIN}
 

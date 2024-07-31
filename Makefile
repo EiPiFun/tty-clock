@@ -4,6 +4,7 @@
 
 SRC = ttyclock.c ttyclock.h
 CC ?= gcc
+PKG_CONFIG ?= pkgconf
 BIN ?= tty-clock
 PREFIX ?= /usr/local
 INSTALLPATH ?= ${DESTDIR}${PREFIX}/bin
@@ -22,8 +23,8 @@ else ifeq ($(shell sh -c 'which ncursesw5-config>/dev/null 2>/dev/null && echo y
 	CFLAGS += -Wall -g $$(ncursesw5-config --cflags)
 	LDFLAGS += $$(ncursesw5-config --libs)
 else
-	CFLAGS += -Wall -g $$(pkg-config --cflags ncurses)
-	LDFLAGS += $$(pkg-config --libs ncurses)
+	CFLAGS += -Wall -g $$($(PKG_CONFIG) --cflags ncurses)
+	LDFLAGS += $$($(PKG_CONFIG) --libs ncurses)
 endif
 
 tty-clock : ${SRC}
